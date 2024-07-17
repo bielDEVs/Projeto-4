@@ -1,0 +1,193 @@
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Estilos da seção de herói */
+.hero-section {
+    background: url('./imagens/cxeimwflyo881.webp') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.overlay {
+    border-radius: 0.5cm;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos do formulário de busca */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.search-form input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #d3a625;
+    border-radius: 4px;
+    background-color: #555;
+    color: #fff;
+    padding-left: 0.75rem;
+}
+
+.search-form input[type="text"]:focus {
+    outline: none;
+    border-color: #fff;
+}
+
+.search-form button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #d3a625;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #ffc107;
+}
+
+/* Estilos das sugestões */
+.suggestions {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background-color: #555;
+    border: 2px solid #d3a625;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion {
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion:hover {
+    background-color: #777;
+}
+
+/* Estilos da lista de filmes */
+.movie-search {
+    padding: 2rem;
+    text-align: center;
+}
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.movie {
+    border: 2px solid #fff;
+    padding: 1rem;
+    background-color: #333;
+    border-radius: 4px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.movie h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.movie p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.movie:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos das seções de benefícios, depoimentos e planos */
+.benefits, .testimonials, .plans {
+    padding: 2rem;
+    text-align: center;
+}
+
+.benefits h2, .testimonials h2, .plans h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.benefit, .plan {
+    margin-bottom: 1rem;
+}
+
+/* Estilos do rodapé */
+footer {
+    background-color: #111;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Responsividade */
+@media only screen and (max-width: 768px) {
+    .hero-section {
+        background-size: cover;
+    }
+
+    .overlay {
+        max-width: 100%;
+    }
+
+    .movie-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .movie {
+        padding: 0.75rem;
+    }
+
+    .movie h3 {
+        font-size: 1.2rem;
+    }
+
+    .movie p {
+        font-size: 0.9rem;
+    }
+}

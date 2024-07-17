@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter - Entre na Magia</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="overlay">
+            <h1>Experimente a Magia de Harry Potter</h1>
+            <p>Explore o mundo mágico de Hogwarts e descubra os segredos ocultos nas histórias de Harry, Hermione e Ron.</p>
+            <form class="search-form" onsubmit="return searchMovie()">
+                <input type="text" id="movieSearchInput" placeholder="Digite o nome do filme" autocomplete="off" required>
+                <div id="suggestions" class="suggestions"></div>
+                <button type="submit">Procurar</button>
+            </form>
+        </div>
+    </header>
+
+    <section class="movie-search">
+        <h2>Procurar Filmes de Harry Potter</h2>
+        <div class="movie-list">
+            <div class="movie">
+                <img src="./imagens/Harry_Potter_Pedra_Filosofal_2001.jpg" alt="Harry Potter e a Pedra Filosofal">
+                <h3>Harry Potter e a Pedra Filosofal</h3>
+                <p>Descubra a jornada épica de Harry no mundo dos bruxos.</p>
+            </div>
+            <div class="movie">
+                <img src="./imagens/51UizOJ+NFL._AC_UF1000,1000_QL80_.jpg" alt="Harry Potter e a Câmara Secreta">
+                <h3>Harry Potter e a Câmara Secreta</h3>
+                <p>Aventuras perigosas aguardam dentro das paredes de Hogwarts.</p>
+            </div>
+            <div class="movie">
+                <img src="./imagens/images (2).jfif" alt="Harry Potter e o Prisioneiro de Azkaban">
+                <h3>Harry Potter e o Prisioneiro de Azkaban</h3>
+                <p>Enfrente Dementadores e descubra a verdade sobre Sirius Black.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <h2>Por que assistir?</h2>
+        <div class="benefit">
+            <h3>Magia e Fantasia</h3>
+            <p>Explore um mundo cheio de feitiços e criaturas mágicas.</p>
+        </div>
+        <div class="benefit">
+            <h3>Aventuras Inesquecíveis</h3>
+            <p>Acompanhe Harry, Hermione e Ron em suas jornadas emocionantes.</p>
+        </div>
+        <div class="benefit">
+            <h3>Amizade e Lealdade</h3>
+            <p>Descubra o poder da amizade na luta contra as forças das trevas.</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>O que os fãs dizem</h2>
+        <blockquote>
+            <p>"A série que capturou meu coração desde o primeiro feitiço!"</p>
+            <cite>João S.</cite>
+        </blockquote>
+        <blockquote>
+            <p>"Uma jornada mágica que transcende gerações."</p>
+            <cite>Revista Mágica</cite>
+        </blockquote>
+    </section>
+
+    <section class="plans">
+        <h2>Planos e Preços</h2>
+        <div class="plan">
+            <h3>Teste Gratuito</h3>
+            <p>Experimente gratuitamente por 7 dias.</p>
+        </div>
+        <div class="plan">
+            <h3>Desconto Especial</h3>
+            <p>50% de desconto no primeiro mês de assinatura.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Proteção mágica de dados pessoais. Cancelamento fácil a qualquer momento.</p>
+    </footer>
+    <script>
+        function searchMovie() {
+            var input = document.getElementById("movieSearchInput").value.toLowerCase();
+            var movies = document.querySelectorAll(".movie");
+
+            movies.forEach(function(movie) {
+                var title = movie.querySelector("h3").innerText.toLowerCase();
+                if (title.includes(input)) {
+                    movie.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+
+            return false;
+        }
+
+        const input = document.getElementById("movieSearchInput");
+        const suggestionsContainer = document.getElementById("suggestions");
+
+        const movies = [
+            "Harry Potter e a Pedra Filosofal",
+            "Harry Potter e a Câmara Secreta",
+            "Harry Potter e o Prisioneiro de Azkaban",
+            // Adicione mais filmes conforme necessário
+        ];
+
+        input.addEventListener("input", function() {
+            const inputValue = this.value.toLowerCase();
+            suggestionsContainer.innerHTML = "";
+
+            const suggestions = movies.filter(function(movie) {
+                return movie.toLowerCase().startsWith(inputValue);
+            });
+
+            suggestions.forEach(function(suggestion) {
+                const div = document.createElement("div");
+                div.classList.add("suggestion");
+                div.textContent = suggestion;
+                div.addEventListener("click", function() {
+                    input.value = suggestion;
+                    suggestionsContainer.innerHTML = "";
+                });
+                suggestionsContainer.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>
